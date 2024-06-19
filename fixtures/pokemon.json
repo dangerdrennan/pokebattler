@@ -1,0 +1,261 @@
+[
+    {
+      "id": 1,
+      "name": "Articuno",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 90,
+          "ATTACK": 85,
+          "DEFENSE": 100,
+          "SPECIAL_ATTACK": 95,
+          "SPECIAL_DEFENSE": 125,
+          "SPEED": 85
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.ICE",
+      "secondary_type": "PokemonType.FLYING",
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.MODEST",
+      "level": 50
+    },
+    {
+      "id": 2,
+      "name": "Zapdos",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 90,
+          "ATTACK": 90,
+          "DEFENSE": 85,
+          "SPECIAL_ATTACK": 125,
+          "SPECIAL_DEFENSE": 90,
+          "SPEED": 100
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.ELECTRIC",
+      "secondary_type": "PokemonType.FLYING",
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.MODEST",
+      "level": 50
+    },
+    {
+      "id": 3,
+      "name": "Moltres",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 90,
+          "ATTACK": 100,
+          "DEFENSE": 90,
+          "SPECIAL_ATTACK": 125,
+          "SPECIAL_DEFENSE": 85,
+          "SPEED": 90
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.FIRE",
+      "secondary_type": "PokemonType.FLYING",
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.MODEST",
+      "level": 50
+    },
+    {
+      "id": 4,
+      "name": "Suicune",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 100,
+          "ATTACK": 75,
+          "DEFENSE": 115,
+          "SPECIAL_ATTACK": 90,
+          "SPECIAL_DEFENSE": 115,
+          "SPEED": 85
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.WATER",
+      "secondary_type": false,
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.MODEST",
+      "level": 50
+    },
+    {
+      "id": 5,
+      "name": "Raikou",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 90,
+          "ATTACK": 85,
+          "DEFENSE": 75,
+          "SPECIAL_ATTACK": 115,
+          "SPECIAL_DEFENSE": 100,
+          "SPEED": 115
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.ELECTRIC",
+      "secondary_type": null,
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.MODEST",
+      "level": 50
+    },
+    {
+      "id": 6,
+      "name": "Entei",
+      "gender": null,
+      "ability": null,
+      "moveset": null,
+      "base_stats": {
+        "stats": {
+          "HP": 115,
+          "ATTACK": 115,
+          "DEFENSE": 85,
+          "SPECIAL_ATTACK": 190,
+          "SPECIAL_DEFENSE": 75,
+          "SPEED": 100
+        }
+      },
+      "ivs": {
+        "stats": {
+          "HP": 31,
+          "ATTACK": 31,
+          "DEFENSE": 31,
+          "SPECIAL_ATTACK": 31,
+          "SPECIAL_DEFENSE": 31,
+          "SPEED": 31
+        }
+      },
+      "evs": {
+        "stats": {
+          "HP": 4,
+          "ATTACK": 0,
+          "DEFENSE": 0,
+          "SPECIAL_ATTACK": 252,
+          "SPECIAL_DEFENSE": 0,
+          "SPEED": 252
+        }
+      },
+      "primary_type": "PokemonType.FIRE",
+      "secondary_type": null,
+      "can_evolve": false,
+      "held_item": null,
+      "nature": "Nature.ADAMANT",
+      "level": 50
+    }
+  ]
+  
