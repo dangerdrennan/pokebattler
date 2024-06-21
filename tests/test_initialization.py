@@ -1,13 +1,19 @@
 # tests/test_initialization.py
 
 import unittest
+from entities.pokemon import Pokemon
 from core.ivs import IVs
 from core.evs import EVs
 from core.type import Type
+from core.secondary_effects.nonvolatile_status_effect import NonVolatileStatusAffliction
+from core.secondary_effects.volatile_status_effect import VolatileStatusEffect
+from core.secondary_effects.target_stat_multiplier import TargetStatMultiplier
 from core.base_stats import BaseStats
-from entities.pokemon import Pokemon
-from core.enums.stat import Stat
+from core.moves.damage_move import DamageMove
 from core.enums.nature import Nature
+from core.enums.move_category import MoveCategory
+from core.enums.stat import Stat
+from core.enums.status.nonvolatile_status import NonVolatileStatus
 from core.type import PokemonType
 
 class TestInitialization(unittest.TestCase):
@@ -57,6 +63,18 @@ class TestInitialization(unittest.TestCase):
         self.assertEqual(charizard.base_stats, base_stats)
         self.assertEqual(charizard.ivs, ivs)
         self.assertEqual(charizard.evs, evs)
-
+        
+    def test_move_initialization(self):
+        freeze = NonVolatileStatusAffliction(NonVolatileStatus.FROZEN, accuracy = 10)
+        ice_beam = DamageMove(name = 'Ice Beam',
+                              move_type = PokemonType.ICE, 
+                              base_power = 90, 
+                              move_category = MoveCategory.SPECIAL,
+                              priority = 0,
+                              secondary_effect = freeze,
+                              accuracy = 100
+                              )
+        
+        
 if __name__ == '__main__':
     unittest.main()

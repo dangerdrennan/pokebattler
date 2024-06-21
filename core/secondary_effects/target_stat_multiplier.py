@@ -1,6 +1,8 @@
+# core/secondary_effects/target_stat_multiplier.py
+
 from interfaces.ISecondaryEffect import SecondaryEffectInterface
 from entities.pokemon import Pokemon
-from enums.stat import Stat
+from core.enums.stat import Stat
 
 class TargetStatMultiplier(SecondaryEffectInterface):
 
@@ -8,13 +10,6 @@ class TargetStatMultiplier(SecondaryEffectInterface):
         self.stages = stages
         self.target_stat = target_stat
 
-    def apply(self,
-              attacker: Pokemon,
-              targets: list[Pokemon],
-              field,
-              stat: Stat,
-              
-              ):
+    def apply(self, targets: list[Pokemon], stat: Stat):
         for target in targets:
-            if (self.stages < 0):
-                target.multipliers.get_multiplier
+            target.multipliers.get_multiplier(stat).apply_stage_increments(self.stages)

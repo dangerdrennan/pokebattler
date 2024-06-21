@@ -6,7 +6,5 @@ from entities.pokemon import Pokemon
 class SecondaryEffectInterface(ABC):
 
     @abstractmethod
-    def apply(self, attacker: Pokemon, targets = None, field = None):
+    def apply(self, targets: Pokemon):
         pass
-
-    

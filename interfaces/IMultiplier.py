@@ -18,13 +18,23 @@ class StatStageBase(ABC):
         self.stage = max(self.get_min_stage(), self.stage - amount)
 
     def get_multiplier_value(self):
-        return self.STAGE_MULTIPLIERS.get(self.stage, 1.0)
+        return self.STAGE_MULTIPLIERS.get(self.stage, 1)
 
     def reset_stage(self):
         self.stage = 0
         
     def return_neutral(self):
         return self.STAGE_MULTIPLIERS.get(0)
+    
+    def apply_stage_increments(self, amount: int):
+        if amount < 0:
+            self.lower_stage(abs(amount))
+        if amount > 0:
+            self.raise_stage(amount)
+        ## keeping it organized this way for future additions, because this 
+        ## may affect text appearing for the user.
+        else:
+            pass
 
     @abstractmethod
     def get_max_stage(self):
