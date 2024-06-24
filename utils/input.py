@@ -4,7 +4,7 @@ import sys
 
 def quit_decorator(func):
     def wrapper(*args, **kwargs):
-        choice = func(*args, **kwargs)
+        choice:str = func(*args, **kwargs)
         if choice.lower() == 'q':
             print("Come back soon!")
             sys.exit()

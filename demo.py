@@ -17,12 +17,16 @@ def demo():
     choice = get_input("")
     if choice == '1':
         user_team = Team(pokemon_list[:3], name="Legendary Birds")
+        computer_team = Team(pokemon_list[3:], name="Legendary Dogs")
     elif choice == '2':
-        user_team = Team(pokemon_list[3:6], name="Legendary Dogs")
+        user_team = Team(pokemon_list[3:], name="Legendary Dogs")
+        computer_team = Team(pokemon_list[:3], name="Legendary Birds")
     else:
         print("Okay, I'm just giving you the Kanto birds to speed this along. Congrats, you'll love them.")
         user_team = Team(pokemon_list[:3], name="Legendary Birds")
+        computer_team = Team(pokemon_list[3:], name="Legendary Dogs")
 
+    print("This is a demo of a 3-3 double battle.")
     print("Enter the indexes of the two pokemon you want to lead with and the other you'll have in the back.")
     lead_indices = []
     pokemon_position_dictionary = {}
@@ -45,6 +49,8 @@ def demo():
     user_team.set_new_order(ordered_list)
     
     print(f"Perfect, you're leading with {ordered_list[0].name} and {ordered_list[1].name}")
+    print(f"Rival trainer is leading with {computer_team[0].name} {computer_team[1].name}")
+    
 
 if __name__ == '__main__':
     demo()

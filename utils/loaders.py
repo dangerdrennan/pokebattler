@@ -3,6 +3,7 @@
 import json
 from core.type import Type
 from core.enums.pokemon_type import PokemonType
+from core.enums.moves import Move
 from core.base_stats import BaseStats
 from core.evs import EVs
 from core.ivs import IVs
@@ -45,12 +46,13 @@ def load_pokemon_data(file_path):
         primary_type = Type(getattr(PokemonType, item['primary_type'].split('.')[1]))
         secondary_type = Type(getattr(PokemonType, item['secondary_type'].split('.')[1])) if item['secondary_type'] else None
         nature = getattr(Nature, item['nature'].split('.')[1])
+        moveset =  [Move[move].get_copy() for move in item['moveset']] if item['moveset'] else []
         
         pokemon = Pokemon(
             name=item['name'],
             gender=item['gender'],
             ability=item['ability'],
-            moveset=item['moveset'],
+            moveset=moveset,
             base_stats=base_stats,
             ivs=ivs,
             evs=evs,
@@ -59,9 +61,9 @@ def load_pokemon_data(file_path):
             can_evolve=item['can_evolve'],
             held_item=item['held_item'],
             nature=nature,
-            level=item['level']
+            level=item['level'],
         )
         
         pokemon_list.append(pokemon)
-    
+        
     return pokemon_list

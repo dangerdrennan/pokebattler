@@ -4,7 +4,7 @@
       "name": "Articuno",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["BLIZZARD", "ICE_BEAM"],
       "base_stats": {
         "stats": {
           "HP": 90,
@@ -219,7 +219,7 @@
       "name": "Entei",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["EXTREME_SPEED", "SACRED_FIRE"],
       "base_stats": {
         "stats": {
           "HP": 115,

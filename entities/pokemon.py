@@ -20,7 +20,7 @@ class Pokemon:
         name: str, 
         gender: str,
         ability: Ability = None,
-        moveset = None, # class not implemented yet
+        moveset = None,
         base_stats: BaseStats = None,
         ivs: IVs = None,
         evs: EVs = None,

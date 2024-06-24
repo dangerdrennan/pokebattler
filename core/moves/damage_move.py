@@ -24,6 +24,7 @@ class DamageMove(MoveInterface):
         move_category: MoveCategory, 
         priority: int, 
         secondary_effect: SecondaryEffectInterface,
+        pp: int,
         accuracy: int = 100
     ) -> None:
         self.name = name # e.g. Flamethrower
@@ -33,6 +34,7 @@ class DamageMove(MoveInterface):
         self.priority: int = priority # an int from 1-100
         self.accuracy: int = accuracy # an int from 1-100
         self.secondary_effect = secondary_effect
+        self.pp: int = pp
     
     def get_name(self) -> str:
         return self.name
@@ -80,7 +82,7 @@ class DamageMove(MoveInterface):
                     targets[i].non_volatile_status = NonVolatileStatus.FAINTED
                 ## apply secondary effect if necessary
                 else:
-                    if secondary_effect_result_list[i]:
+                    if self.secondary_effect and secondary_effect_result_list[i]:
                         self.apply_secondary_effect(targets[i])
         return attacker, targets
     
@@ -162,3 +164,15 @@ class DamageMove(MoveInterface):
     
     def get_modified_evasion(target: Pokemon):
         return target.multipliers.evasion.get_multiplier_value()
+    
+    def copy(self):
+        return DamageMove(
+            name=self.name,
+            move_type=self.move_type,
+            base_power=self.base_power,
+            move_category=self.move_category,
+            priority=self.priority,
+            secondary_effect=self.secondary_effect,
+            accuracy=self.accuracy,
+            pp=self.pp
+        )

@@ -72,7 +72,8 @@ class TestInitialization(unittest.TestCase):
                               move_category = MoveCategory.SPECIAL,
                               priority = 0,
                               secondary_effect = freeze,
-                              accuracy = 100
+                              accuracy = 100,
+                              pp=10
                               )
         
         

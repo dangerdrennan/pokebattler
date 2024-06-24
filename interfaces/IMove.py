@@ -7,6 +7,10 @@ class MoveInterface(ABC):
     @abstractmethod
     def apply_move(self, attacker, targets, field, history):
         pass
+    
+    @abstractmethod
+    def copy(self):
+        pass
 
     @abstractmethod
     def get_name(self):
