@@ -14,7 +14,8 @@ def demo():
 
     print("Welcome to pokemon battler, the only pokemon battle simulator ever attempted. (enter 'q' at any time to quit)")
     print("Please select your team- 1 for the legendary birds of Kanto or 2 for the legendary dogs of Johto.")
-    choice = get_input("")
+    # choice = get_input("")
+    choice = '1'
     if choice == '1':
         user_team = Team(pokemon_list[:3], name="Legendary Birds")
         computer_team = Team(pokemon_list[3:], name="Legendary Dogs")
@@ -34,12 +35,13 @@ def demo():
         pokemon_position_dictionary[i + 1] = pokemon.name
         print(f"{i + 1} {pokemon.name}  ")
 
-    while not lead_indices:
-        try:
-            lead_indices = choose_lead_pokemon()
-        except Exception as e:
-            print(e)
-            print("Error occurred in parsing choice. Please try again or press 'q' to exit.")
+    # while not lead_indices:
+    #     try:
+    #         lead_indices = choose_lead_pokemon()
+    #     except Exception as e:
+    #         print(e)
+    #         print("Error occurred in parsing choice. Please try again or press 'q' to exit.")
+    lead_indices= [1,2]
 
     ordered_list = []
     ordered_list.append(pokemon_list[int(lead_indices[0]) - 1])
@@ -50,6 +52,22 @@ def demo():
     
     print(f"Perfect, you're leading with {ordered_list[0].name} and {ordered_list[1].name}")
     print(f"Rival trainer is leading with {computer_team.pokemon_list[0].name} and {computer_team.pokemon_list[1].name}")
+    
+    cur_poke = user_team.pokemon_list[0]
+    other_poke = computer_team.pokemon_list[0]
+    chosen_move = user_team.pokemon_list[0].moveset[0]
+    
+    print(cur_poke.__dict__)
+    print(other_poke.__dict__)
+    
+    chosen_move.apply_move(cur_poke, [other_poke])
+    print("worked?")
+    print()
+    
+    print(cur_poke.__dict__)
+    print(other_poke.__dict__)
+    
+    
     
 if __name__ == '__main__':
     demo()

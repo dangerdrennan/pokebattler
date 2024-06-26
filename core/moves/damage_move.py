@@ -10,6 +10,7 @@ from core.enums.move_category import MoveCategory
 from core.enums.secondary_effect_type import SecondaryEffectType
 from core.enums.stat import Stat
 from core.enums.status.nonvolatile_status import NonVolatileStatus
+from core.enums.targets import Target
 
 
 class DamageMove(MoveInterface):
@@ -25,7 +26,8 @@ class DamageMove(MoveInterface):
         priority: int, 
         secondary_effect: SecondaryEffectInterface,
         pp: int,
-        accuracy: int = 100
+        accuracy: int = 100,
+        target_zone: Target = Target.SINGLE_TARGET_ANY
     ) -> None:
         self.name = name # e.g. Flamethrower
         self.move_category = move_category # Physical or Special
@@ -35,6 +37,7 @@ class DamageMove(MoveInterface):
         self.accuracy: int = accuracy # an int from 1-100
         self.secondary_effect = secondary_effect
         self.pp: int = pp
+        self.target_zone = target_zone
     
     def get_name(self) -> str:
         return self.name
@@ -73,7 +76,7 @@ class DamageMove(MoveInterface):
     def apply_move(self, attacker: Pokemon, targets: List[Pokemon]) -> None:
         is_spread = len(targets) > 1
         results_list, secondary_effect_result_list = self.check_success(attacker, targets)
-        for i in range(results_list):
+        for i in range(len(results_list)):
             if results_list[i]:
                 damage = self.calculate_damage(attacker, targets[i], is_spread)
                 targets[i].current_hp = max(0, targets[i].current_hp - damage)
@@ -102,7 +105,8 @@ class DamageMove(MoveInterface):
         
     def get_typing_modifier(self, target: Pokemon):
         typing_modifier = (TYPE_OFFENSIVE_MULTIPLIERS[self.move_type][target.primary_type.name])
-        typing_modifier *= (TYPE_OFFENSIVE_MULTIPLIERS[self.move_type][target.secondary_type.name])
+        if target.secondary_type:
+            typing_modifier *= (TYPE_OFFENSIVE_MULTIPLIERS[self.move_type][target.secondary_type.name])
         return typing_modifier
     
     ## I'm writing this with an extra argument, because I know some moves will need to know
@@ -147,10 +151,10 @@ class DamageMove(MoveInterface):
         result_list = [] # list of bools, true if hit, false if miss
         secondary_effect_result_list = [] # list of bools, true if hit, false if miss
         evasiveness_multiplier_list = [self.get_modified_evasion(target) for target in targets]
-        for i in range(evasiveness_multiplier_list):
+        for i in range(len(evasiveness_multiplier_list)):
             if randint(1, 100) <= self.accuracy * attacker_accuracy / evasiveness_multiplier_list[i]:
                 result_list.append(True)
-                if uniform(0, 1) <= self.secondary_effect_accuracy:
+                if uniform(0, 1) <= self.secondary_effect.accuracy:
                     secondary_effect_result_list.append(False)
             else:
                 result_list.append(False)
@@ -159,10 +163,10 @@ class DamageMove(MoveInterface):
         
     # getting modified accuracy depends on a lot of things so I'm seperating this into a helper
     # function for the time being. Helper function is better for expanding in the future
-    def get_modified_accuracy(attacker: Pokemon):
+    def get_modified_accuracy(self, attacker: Pokemon):
         return attacker.multipliers.accuracy.get_multiplier_value()
     
-    def get_modified_evasion(target: Pokemon):
+    def get_modified_evasion(self, target: Pokemon):
         return target.multipliers.evasion.get_multiplier_value()
     
     def copy(self):

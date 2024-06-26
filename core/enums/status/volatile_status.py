@@ -7,6 +7,9 @@ from enum import Enum, auto
 class VolatileStatus(Enum):
     CONFUSED = auto()
     PROTECTED = auto()
+    FLINCHED = auto()
+    CHARGING = auto()
+    RE_CHARGING = auto()
 
 ## list of the first round I kind of want to implement
 '''

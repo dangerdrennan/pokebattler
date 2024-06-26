@@ -47,7 +47,7 @@
       "name": "Zapdos",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["DISCHARGE", "THUNDER"],
       "base_stats": {
         "stats": {
           "HP": 90,
@@ -90,7 +90,7 @@
       "name": "Moltres",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["HEAT_WAVE", "AIR_SLASH"],
       "base_stats": {
         "stats": {
           "HP": 90,
@@ -133,7 +133,7 @@
       "name": "Suicune",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["HYDRO_PUMP", "HURRICANE"],
       "base_stats": {
         "stats": {
           "HP": 100,
@@ -176,7 +176,7 @@
       "name": "Raikou",
       "gender": null,
       "ability": null,
-      "moveset": null,
+      "moveset": ["THUNDER", "IRON_HEAD"],
       "base_stats": {
         "stats": {
           "HP": 90,

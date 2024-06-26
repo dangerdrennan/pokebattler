@@ -17,16 +17,11 @@ class TurnExecutor:
         self.field = field
         self.attacker = attacker
         self.participants = participants
-        self.turn_order = None
     
     def execute(self):
-        
         self.participants = self.set_turn_order()
         for participant in self.participants:
+            # targets = 
             participant.current_move.apply_move(attacker=participant, targets=participant.targets)
             self.participants = [participant for participant in self.participants if participant.non_volatile_status != NonVolatileStatus.FAINTED]
         
-    def set_turn_order(self) -> list[Pokemon]:
-        random.shuffle(self.participants)
-        return sorted(self.participants, key=lambda p: (-p.current_move.get_priority(), -p.get_effective_stat(Stat.SPEED)))
-    
